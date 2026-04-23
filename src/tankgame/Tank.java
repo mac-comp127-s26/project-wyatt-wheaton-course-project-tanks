@@ -10,17 +10,21 @@ import edu.macalester.graphics.events.Key;
 import java.awt.Color;
 import java.util.Set;
 
+// TODO: Implement javadoc
+
 public class Tank {
     GraphicsGroup t;
     int controlScheme;
+    CanvasWindow canvas;
+
 
     double angle = 180;
 
     // This is mostly self explanatory, but controlScheme will determine if this tank will use wasd or arrows
+    // TODO: Implement a starting angle
     public Tank(CanvasWindow canvas, int startX, int startY, Color color, int controlScheme) {
         controlScheme = this.controlScheme;
-        
-        
+        this.canvas = canvas;
         
         // This sets up our tank visual
         this.t = new GraphicsGroup(startX, startY);
@@ -39,11 +43,12 @@ public class Tank {
         canvas.add(t);
     }
 
+    // This will be constantly called in a loop to handle all possible input (which will only be 5 keys)
+    // TODO: Implement control schemes, one with arrows the other with wasd
     void registerInput(Set<Key> s) {
-        if (s.contains(Key.LEFT_ARROW)) {
-            t.rotateBy(5);
-            angle += 5;
-            t.add(t);
+        if (s.contains(Key.W)) {
+            t.moveBy(0, 5); // 45 and 46 work but will never be called because of the issues discussed in main
+            canvas.add(t);
         }
     }
 }
