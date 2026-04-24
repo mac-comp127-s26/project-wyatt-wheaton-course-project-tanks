@@ -47,8 +47,17 @@ public class Tank {
     // TODO: Implement control schemes, one with arrows the other with wasd
     void registerInput(Set<Key> s) {
         if (s.contains(Key.W)) {
-            t.moveBy(0, 5); // 45 and 46 work but will never be called because of the issues discussed in main
-            canvas.add(t);
+            t.moveBy(0, -5); // 45 and 46 work but will never be called because of the issues discussed in main
+        } else if (s.contains(Key.S)) {
+            t.moveBy(0, 5);
+
+        } else if (s.contains(Key.A)) {
+            t.moveBy(-5, 0); // TODO add angle for cannon rotation
+
+        }else if (s.contains(Key.D)) {
+            t.moveBy(5, 0); // TODO add angle for cannon rotation
         }
+
+        canvas.add(t);
     }
 }

@@ -15,13 +15,25 @@ public class MainWindow {
         // TODO: Implement second tank
         CanvasWindow canvas = new CanvasWindow("Tanks", 800, 800);
         Tank t0 = new Tank(canvas, 400, 400, p1, 0);
+        canvas.draw();
         
         // Loop where movement is registered and canvas updated
-        // TODO: fix getKeeysPressed
-        while (true) {
-            t0.registerInput(canvas.getKeysPressed()); // getKeysPressed doesn't work for unknown reasons
+        // TODO: fix getKeysPressed
+        canvas.animate(() -> {
+            t0.registerInput(canvas.getKeysPressed()); 
+            canvas.draw();  
+        });
+
+
+            // canvas.onKeyDown(event -> {
+            //     t0.registerInput(event.getKey());
+                
+
+            // });
+            
+            // getKeysPressed doesn't work for unknown reasons
             // it will never return anything at all no matter how many keys you press, so that is our big obstacle.
-            canvas.draw();
+            
         }
     }
-}
+
