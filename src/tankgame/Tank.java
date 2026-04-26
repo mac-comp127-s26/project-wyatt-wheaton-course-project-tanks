@@ -17,8 +17,9 @@ public class Tank {
     int controlScheme;
     CanvasWindow canvas;
 
-
-    double angle = 180;
+    // The angle doesn't directly work with sin and cos functions, so we convert to radians before.
+    double angle = 270;
+    double radians;
 
     // This is mostly self explanatory, but controlScheme will determine if this tank will use wasd or arrows
     // TODO: Implement a starting angle
@@ -33,12 +34,13 @@ public class Tank {
         body.setStrokeColor(Color.BLACK);
         body.setFillColor(color);
 
-        Rectangle barrel = new Rectangle(10, 15, 10, 50);
+        Rectangle barrel = new Rectangle(10, 15, 10, 30);
         barrel.setStrokeColor(Color.BLACK);
         barrel.setFillColor(color);
 
         t.add(body);
         t.add(barrel);
+        t.setAnchor(15,15);
 
         canvas.add(t);
     }
@@ -47,17 +49,22 @@ public class Tank {
     // TODO: Implement control schemes, one with arrows the other with wasd
     void registerInput(Set<Key> s) {
         if (s.contains(Key.W)) {
-            t.moveBy(0, -5); // 45 and 46 work but will never be called because of the issues discussed in main
+            t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
         } else if (s.contains(Key.S)) {
-            t.moveBy(0, 5);
+            t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians));
+        } 
+        
+        radians = angle * (Math.PI / 180);
 
-        } else if (s.contains(Key.A)) {
-            t.moveBy(-5, 0); // TODO add angle for cannon rotation
+        if (s.contains(Key.A)) {
+            t.rotateBy(-5);
+            angle += -5;
 
         }else if (s.contains(Key.D)) {
-            t.moveBy(5, 0); // TODO add angle for cannon rotation
+            t.rotateBy(5);
+            angle += 5;
         }
-
+        System.out.println(angle);
         canvas.add(t);
     }
 }

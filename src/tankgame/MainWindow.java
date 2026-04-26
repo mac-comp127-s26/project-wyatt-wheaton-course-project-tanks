@@ -18,22 +18,11 @@ public class MainWindow {
         canvas.draw();
         
         // Loop where movement is registered and canvas updated
-        // TODO: fix getKeysPressed
         canvas.animate(() -> {
             t0.registerInput(canvas.getKeysPressed()); 
             canvas.draw();  
         });
-
-
-            // canvas.onKeyDown(event -> {
-            //     t0.registerInput(event.getKey());
-                
-
-            // });
-            
-            // getKeysPressed doesn't work for unknown reasons
-            // it will never return anything at all no matter how many keys you press, so that is our big obstacle.
-            
+        
         }
     }
 
