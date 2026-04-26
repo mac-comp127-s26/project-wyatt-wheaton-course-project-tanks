@@ -12,7 +12,6 @@ public class MainWindow {
         final Color p1 = Color.RED;
 
         // Making canvas and tank
-        // TODO: Implement second tank
         CanvasWindow canvas = new CanvasWindow("Tanks", 800, 800);
         Tank t0 = new Tank(canvas, 200, 200, p0, 0);
         Tank t1 = new Tank(canvas, 600, 600, p1, 1);
@@ -24,7 +23,6 @@ public class MainWindow {
             t1.registerInput(canvas.getKeysPressed()); 
             canvas.draw();  
         });
-
         }
     }
 

@@ -17,7 +17,7 @@ public class Tank {
     int controlScheme;
     CanvasWindow canvas;
 
-    // The angle doesn't directly work with sin and cos functions, so we convert to radians before.
+    // The angle doesn't directly work with sin and cos functions, so we convert to radians before use.
     double angle = 270;
     double radians;
 
@@ -45,10 +45,10 @@ public class Tank {
         canvas.add(t);
     }
 
-    // This will be constantly called in a loop to handle all possible input (which will only be 5 keys)
-    // TODO: Implement control schemes, one with arrows the other with wasd
+    // This will be constantly called in a loop to handle all possible input (which will only be 5 keys PER CONTROL SCHEME)
     void registerInput(Set<Key> s) {
         if (controlScheme == 0) {
+            // WASD version
             if (s.contains(Key.W)) {
                 t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
             } else if (s.contains(Key.S)) {
@@ -65,8 +65,8 @@ public class Tank {
                 t.rotateBy(5);
                 angle += 5;
             }
-            canvas.add(t);
         } else {
+            // Arrow keys version
             if (s.contains(Key.UP_ARROW)) {
                 t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
             } else if (s.contains(Key.DOWN_ARROW)) {
@@ -83,7 +83,7 @@ public class Tank {
                 t.rotateBy(5);
                 angle += 5;
             }
-            canvas.add(t);
         }
+        canvas.add(t);
     }
 }
