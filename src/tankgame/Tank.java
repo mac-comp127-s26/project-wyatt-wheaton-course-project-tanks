@@ -24,7 +24,7 @@ public class Tank {
     // This is mostly self explanatory, but controlScheme will determine if this tank will use wasd or arrows
     // TODO: Implement a starting angle
     public Tank(CanvasWindow canvas, int startX, int startY, Color color, int controlScheme) {
-        controlScheme = this.controlScheme;
+        this.controlScheme = controlScheme;
         this.canvas = canvas;
         
         // This sets up our tank visual
@@ -48,23 +48,42 @@ public class Tank {
     // This will be constantly called in a loop to handle all possible input (which will only be 5 keys)
     // TODO: Implement control schemes, one with arrows the other with wasd
     void registerInput(Set<Key> s) {
-        if (s.contains(Key.W)) {
-            t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
-        } else if (s.contains(Key.S)) {
-            t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians));
-        } 
-        
-        radians = angle * (Math.PI / 180);
+        if (controlScheme == 0) {
+            if (s.contains(Key.W)) {
+                t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
+            } else if (s.contains(Key.S)) {
+                t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians));
+            } 
+            
+            radians = angle * (Math.PI / 180);
 
-        if (s.contains(Key.A)) {
-            t.rotateBy(-5);
-            angle += -5;
+            if (s.contains(Key.A)) {
+                t.rotateBy(-5);
+                angle += -5;
 
-        }else if (s.contains(Key.D)) {
-            t.rotateBy(5);
-            angle += 5;
+            }else if (s.contains(Key.D)) {
+                t.rotateBy(5);
+                angle += 5;
+            }
+            canvas.add(t);
+        } else {
+            if (s.contains(Key.UP_ARROW)) {
+                t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
+            } else if (s.contains(Key.DOWN_ARROW)) {
+                t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians));
+            } 
+            
+            radians = angle * (Math.PI / 180);
+
+            if (s.contains(Key.LEFT_ARROW)) {
+                t.rotateBy(-5);
+                angle += -5;
+
+            }else if (s.contains(Key.RIGHT_ARROW)) {
+                t.rotateBy(5);
+                angle += 5;
+            }
+            canvas.add(t);
         }
-        System.out.println(angle);
-        canvas.add(t);
     }
 }
