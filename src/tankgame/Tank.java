@@ -16,6 +16,10 @@ public class Tank {
     GraphicsGroup t;
     int controlScheme;
     CanvasWindow canvas;
+    private double MaxX;
+    private double MaxY;
+    private double Minx;
+    private double MinY;
 
     // The angle doesn't directly work with sin and cos functions, so we convert to radians before use.
     double angle = 270;
@@ -26,6 +30,8 @@ public class Tank {
     public Tank(CanvasWindow canvas, int startX, int startY, Color color, int controlScheme) {
         this.controlScheme = controlScheme;
         this.canvas = canvas;
+        this.MaxX = canvas.getWidth();
+        this.MaxY = canvas.getHeight();
         
         // This sets up our tank visual
         this.t = new GraphicsGroup(startX, startY);
