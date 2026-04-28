@@ -15,15 +15,15 @@ public class MainWindow {
         CanvasWindow canvas = new CanvasWindow("Tanks", 800, 800);
         Tank t0 = new Tank(canvas, 200, 200, p0, 0);
         Tank t1 = new Tank(canvas, 600, 600, p1, 1);
-        Obstacles o = new Obstacles(canvas);
-        System.out.println(o.getRects());
+        Obstacles obs = new Obstacles(canvas);
+        System.out.println(obs.getRects());
         canvas.draw();
         
         // Loop where movement is registered and canvas updated
         canvas.animate(() -> {
             t0.registerInput(canvas.getKeysPressed());
             t1.registerInput(canvas.getKeysPressed()); 
-            canvas.draw();  
+            
         });
 
         }

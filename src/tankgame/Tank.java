@@ -54,6 +54,7 @@ public class Tank {
     // This will be constantly called in a loop to handle all possible input (which will only be 5 keys PER CONTROL SCHEME)
     void registerInput(Set<Key> s) {
         if (controlScheme == 0) {
+            radians = angle * (Math.PI / 180);
             // WASD version
             if (s.contains(Key.W)) {
                 t.moveBy(-5 * Math.cos(radians), -5 * Math.sin(radians)); // 45 and 46 work but will never be called because of the issues discussed in main
@@ -61,7 +62,7 @@ public class Tank {
                 t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians));
             } 
             
-            radians = angle * (Math.PI / 180);
+            
 
             if (s.contains(Key.A)) {
                 t.rotateBy(-5);
@@ -90,6 +91,6 @@ public class Tank {
                 angle += 5;
             }
         }
-        canvas.add(t);
+       
     }
 }
