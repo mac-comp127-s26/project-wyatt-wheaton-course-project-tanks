@@ -19,8 +19,6 @@ public class MainWindow {
         Tank t0 = new Tank(canvas, 200, 200, p0, 0, obs);
         Tank t1 = new Tank(canvas, 600, 600, p1, 1, obs);
 
-        System.out.println(obs.getRects());
-
         List <Rectangle> rects = obs.getRects();
         canvas.draw();
         

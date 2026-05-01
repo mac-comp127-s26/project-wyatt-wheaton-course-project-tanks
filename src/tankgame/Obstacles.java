@@ -17,23 +17,22 @@ public class Obstacles {
     
     // constructor to create setup for rectangles
     public Obstacles(CanvasWindow canvas) {
-        this.x = 300;
-        this.y = 300;
-        this.spacing = 150;
+        this.x = 50;
+        this.y = 50;
+        this.spacing = 50;
         this.numRect = new Random().nextInt(9) + 1;
-        createRectangle(canvas, x, y);
 
         // uses random number between 1 and 10 to create random 100 by 100 squares around the canvas
-        // for (int i = 0; i < numRect; i ++) {
-        //     createRectangle(canvas, x, y);
-        // }
+        for (int i = 0; i < numRect; i++) {
+            createRectangle(canvas);
+        }
     
     }
     // actual rectangle creation and canvas addition method
-    private void createRectangle(CanvasWindow canvas, double x, double y) {
-        //int xMax = new Random().nextInt(canvas.getWidth());
-        //int yMax = new Random().nextInt(canvas.getHeight());
-        Rectangle r1 = new Rectangle(x, y, spacing, spacing); // rectangle creation
+    private void createRectangle(CanvasWindow canvas) {
+        int xMax = new Random().nextInt(canvas.getWidth());
+        int yMax = new Random().nextInt(canvas.getHeight());
+        Rectangle r1 = new Rectangle(xMax, yMax, spacing, spacing); // rectangle creation
         rects.add(r1); // list of rectangles used for hitbox detection
         canvas.add(r1);
         
