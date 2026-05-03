@@ -1,9 +1,7 @@
 package tankgame;
 import java.awt.Color;
-import java.util.List;
 
 import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.Rectangle;
 
 // TODO: Implement Javadoc
 
@@ -19,14 +17,16 @@ public class MainWindow {
         Tank t0 = new Tank(canvas, 200, 200, p0, 0, obs);
         Tank t1 = new Tank(canvas, 600, 600, p1, 1, obs);
 
-        List <Rectangle> rects = obs.getRects();
+        // for testing purposes
+        Bullet b = new Bullet(canvas, 100, 400, 40, p0)
+;
         canvas.draw();
         
         // Loop where movement is registered and canvas updated
         canvas.animate(() -> {
             t0.registerInput(canvas.getKeysPressed());
             t1.registerInput(canvas.getKeysPressed()); 
-    
+            b.move();
         });
 
     }

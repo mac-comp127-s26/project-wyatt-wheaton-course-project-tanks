@@ -5,12 +5,8 @@ import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.events.Key;
-import edu.macalester.graphics.GraphicsObject;
-
-
 
 import java.awt.Color;
-import java.awt.geom.Rectangle2D;
 import java.util.List;
 import java.util.Set;
 
