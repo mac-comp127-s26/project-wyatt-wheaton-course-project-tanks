@@ -18,7 +18,7 @@ public class MainWindow {
         Tank t1 = new Tank(canvas, 600, 600, p1, 1, obs);
 
         // for testing purposes
-        Bullet b = new Bullet(canvas, 100, 400, 40, p0)
+        Bullet b = new Bullet(canvas, 100, 400, 40, p0, obs)
 ;
         canvas.draw();
         
