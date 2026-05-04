@@ -13,7 +13,7 @@ import java.util.Set;
 // TODO: Implement javadoc
 
 public class Tank {
-    GraphicsGroup t;
+    public GraphicsGroup t;
     int controlScheme; // for different tank controls
     CanvasWindow canvas;
     private double diameter; // diameter of circle
@@ -127,7 +127,7 @@ public class Tank {
     //     return new double[] {newX, newY};
     // }
 
-    
+
     // TODO remove this helper method when done with collision testing (important for testing so I left it in here)
 
     // private void displayHit(double x, double y) {
@@ -149,6 +149,15 @@ public class Tank {
             bodyPoints[i][0] = centerX + radius * Math.cos(evenlySpacedAngle);
             bodyPoints[i][1] = centerY + radius * Math.sin(evenlySpacedAngle);
         }
+
+    }
+
+    // creation and updating of cannonPoints (need for manipulating bullet location)
+    private void createCannonPoints() {
+        double centerX = t.getX() + 15;
+        double centerY = t.getY() + 15;
+
+
 
     }
 

@@ -18,7 +18,7 @@ public class MainWindow {
         Tank t1 = new Tank(canvas, 600, 600, p1, 1, obs);
 
         // for testing purposes
-        Bullet b = new Bullet(canvas, 100, 400, 40, p0, obs)
+        Bullet b = new Bullet(canvas, 40, p0, obs, t0)
 ;
         canvas.draw();
         
@@ -26,7 +26,7 @@ public class MainWindow {
         canvas.animate(() -> {
             t0.registerInput(canvas.getKeysPressed());
             t1.registerInput(canvas.getKeysPressed()); 
-            b.move();
+            b.moveBullet();
         });
 
     }

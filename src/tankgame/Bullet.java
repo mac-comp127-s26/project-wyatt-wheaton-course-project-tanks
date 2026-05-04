@@ -14,7 +14,11 @@ public class Bullet {
     private double radians;
     private Color color;
     private Obstacles o;
+    private int numPoints = 16;
+    private double diameter;
     List <Rectangle> rects;
+    private double[][] bulletPoints = new double [numPoints] [2];
+    Tank tank;
     
 
     final double xVel;
@@ -23,13 +27,15 @@ public class Bullet {
     CanvasWindow canvas;
     Ellipse shape;
 
-    public Bullet(CanvasWindow canvas, double startX, double startY, double angle, Color color, Obstacles o) {
+    public Bullet(CanvasWindow canvas, double angle, Color color, Obstacles o, Tank tank) {
         this.canvas = canvas;
         this.o = o;
 
-        this.startX = startX;
-        this.startY = startY;
+        this.tank = tank;
+        this.startX = tank.t.getX();
+        this.startY = tank.t.getY();
         this.angle = angle;
+        this.diameter = 10;
 
         // the angle is fed in for clarity, but our calculations require radians
         radians = angle * (Math.PI / 180);
@@ -38,16 +44,20 @@ public class Bullet {
         xVel = 5 * Math.cos(radians);
         yVel = 5 * Math.sin(radians);
 
-        shape = new Ellipse(startX, startY, 10, 10);
+        shape = new Ellipse(startX, startY, diameter, diameter);
         shape.setFillColor(color);
+
+        updateBulletPoints();
+
         canvas.add(shape);
     }
 
     // void for now, but will likely return a boolean with implementation of hit detection.
-    void move() {
+    void moveBullet() {
         shape.moveBy(xVel, yVel);
+        updateBulletPoints();
         if (checkObstaclesHitbox(rects)) {
-            // remove it somehow?
+            shape.setPosition(tank.t.getX(), tank.t.getY());
         }
 
     }
@@ -55,10 +65,26 @@ public class Bullet {
     private boolean checkObstaclesHitbox(List <Rectangle> rects) {
         boolean hitCheck = false;
         for(Rectangle rect : rects) { // for every obstecle on the window
-            if (rect.testHit(shape.getX(), shape.getY())) {
-                hitCheck = true;
+            for (double [] point : bulletPoints) {
+                if (rect.testHit(point[0], point[1])) {
+                    hitCheck = true;
+                }
             }
+            
         }
         return hitCheck;
     } 
+
+    private void updateBulletPoints() {
+        double centerX = shape.getX() + 5;
+        double centerY = shape.getY() + 5;
+        double radius = diameter / 2;
+
+        for (int i = 0; i < numPoints; i++) {
+            double evenlySpacedAngle = 2 * Math.PI * i / numPoints;
+            bulletPoints[i][0] = centerX + radius * Math.cos(evenlySpacedAngle);
+            bulletPoints[i][1] = centerY + radius * Math.sin(evenlySpacedAngle);
+        }
+
+    }
 }

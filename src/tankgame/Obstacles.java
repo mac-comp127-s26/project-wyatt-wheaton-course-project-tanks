@@ -41,8 +41,9 @@ public class Obstacles {
 
     // actual rectangle creation and canvas addition method
     private void createRectangle(CanvasWindow canvas) {
-        int xMax = new Random().nextInt(canvas.getWidth());
-        int yMax = new Random().nextInt(canvas.getHeight());
+        int xMax = new Random().nextInt(canvas.getWidth() - 199) + 100;
+        int yMax = new Random().nextInt(canvas.getHeight() - 199) + 100;
+        System.out.println(xMax + " , " + yMax);
         Rectangle r1 = new Rectangle(xMax, yMax, spacing, spacing); // rectangle creation
         r1.setFillColor(color); // filling in walls
         rects.add(r1); // list of rectangles used for hitbox detection
