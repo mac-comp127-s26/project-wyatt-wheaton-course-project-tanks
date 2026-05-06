@@ -1,5 +1,5 @@
 # Tanks!
-### Wheaton Gribb and Wyatt Petersen
+By Wheaton Gribb and Wyatt Petersen
 
 ## Required Software
 - OpenJDK version 25.0.2
@@ -47,7 +47,7 @@ so the player who wins (TBD) rounds first will win, and the game will end.
 
 ## Resources
 - Wii Play Tanks - This was the main inspiration behind our game. It is worth noting that this is a 1-2 player Co-op campaign format instead of PvP. Gameplay can be found [here](https://youtu.be/orLxrg51xL8).
-- Diep.io - A browser game that inspired the artstyle (If you could call it that) of our game. The game can be found [here](diep.io).
+- Diep.io - A browser game that inspired the artstyle (If you could call it that) of our game. The game can be found [here](https://diep.io).
 - Fireboy and Watergirl - This inspired the control scheme. This game was always fun in school because it was basically the only Co-op game on flash that I can recall. The game can be found [here](https://www.coolmathgames.com/0-fireboy-and-water-girl-in-the-forest-temple). 
 - Kilt Graphics Documentation - It helped, but not as much as we'd like it to! It can be found [here](https://mac-comp127.github.io/kilt-graphics/).
 
