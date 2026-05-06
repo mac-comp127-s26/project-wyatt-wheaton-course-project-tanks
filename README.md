@@ -37,7 +37,7 @@ so the player who wins (TBD) rounds first will win, and the game will end.
 4. Play until one player wins!
 
 ## Images
-![Screenshot of Tanks!, where blue shoots at but nearly misses red](Image\Window_Image0.png)
+![Screenshot of Tanks!, where blue shoots at but nearly misses red](https://github.com/mac-comp127-s26/project-wyatt-wheaton-course-project-tanks/blob/main/Image/Window_Image0.png)
 
 *More images to be added in the future*
 
