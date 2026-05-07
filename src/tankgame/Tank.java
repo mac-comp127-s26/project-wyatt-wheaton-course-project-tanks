@@ -13,35 +13,33 @@ import java.util.Set;
 // TODO: Implement javadoc
 
 public class Tank {
-    public GraphicsGroup t;
-    int controlScheme; // for different tank controls
-    CanvasWindow canvas;
+    public GraphicsGroup t; // Graphics Group of the Tank
+    private int controlScheme; // for different tank controls
+    private CanvasWindow canvas;
     private double diameter; // diameter of circle
     private double cannonHeight;
     private double cannonWidth;
     private Obstacles o;
     private int numPoints = 16; // number of points on the body of the tank which are used as hitbox detectors
-    private double[][] bodyPoints = new double [numPoints] [2]; // creates an array of 2 double arrays for 16 points on the body of the Tank
+    double[][] bodyPoints = new double [numPoints] [2]; // creates an array of double arrays for numPoints points on the body of the Tank
     private double cannonWidthOffset = 15;
     private double cannonHeightOffset = 45;
-    private double angle;
-    private double radians;
-
-    // The angle is in degrees. Since Math.cos and Math.sin are in radians, we convert to radians before use.
+    private double angle; // in degrees
+    private double radians; // angle in radians
+    public int livesRemaining;
     
-
     // This is mostly self explanatory, but controlScheme will determine if this tank will use wasd or arrows
-    // TODO: Implement a starting angle
-    public Tank(CanvasWindow canvas, int startX, int startY, Color color, int controlScheme , Obstacles o) {
+    public Tank(CanvasWindow canvas, int startX, int startY, Color color, int controlScheme , Obstacles o, int livesRemaining) {
         this.controlScheme = controlScheme;
         this.canvas = canvas;
         this.diameter = 30;
         this.cannonHeight = 30;
         this.cannonWidth = 10;
         this.o = o;
-        this.angle = 90;
+        this.angle = 90; // starting angle
         this.radians = angle * (Math.PI / 180);
-        
+        this.livesRemaining = livesRemaining;
+
         // This sets up our tank visual
         this.t = new GraphicsGroup(startX, startY);
 
@@ -65,12 +63,10 @@ public class Tank {
         canvas.add(t);
     }
 
-    // This will be constantly called in a loop to handle all possible input (which will only be 5 keys PER CONTROL SCHEME)
+    // This will be constantly called in a canvas.animate to handle all possible input (which will only be 4 keys PER CONTROL SCHEME)
     void registerInput(Set<Key> s) {
         radians = angle * (Math.PI / 180);
-
-        if (controlScheme == 0) {
-            
+        if (controlScheme == 0) { // for player 1 tank
             // checks if key pressed is w or s and if the next move will not be touching/inside an obstacle. 
             if (s.contains(Key.W) && !(checkObstaclesHitbox(o.getRects(), 5 * Math.cos(radians), 5 * Math.sin(radians)))) {
                 t.moveBy(5 * Math.cos(radians), 5 * Math.sin(radians)); 
@@ -88,7 +84,7 @@ public class Tank {
                     t.rotateBy(5);
                     angle += 5;
                 } 
-            } else {
+            } else { // for player 2 tank 
                 
                 // checks if key pressed is up or down arrow and if the next move will not be touching/inside an obstacle. 
                 if (s.contains(Key.UP_ARROW) && !(checkObstaclesHitbox(o.getRects(), 5 * Math.cos(radians), 5 * Math.sin(radians)))) {
@@ -110,10 +106,10 @@ public class Tank {
             }
         }
     
-    // used to check collisons between tanks and obstecles
+    // used to check collisons between tanks and obstacles, returns true if next move hits an obstacle
    private boolean checkObstaclesHitbox(List <Rectangle> rects, double xOffset, double yOffset) {
         boolean hitCheck = false;
-        for(Rectangle rect : rects) { // for every obstecle on the window
+        for(Rectangle rect : rects) { // for every obstacle on the window
             for (double[] point : bodyPoints) { // for every point within the bodyPoint array
                 if(rect.testHit(point[0] + xOffset, point[1] + yOffset)) { // check to see if the next move will collide with an obstacle
                     hitCheck = true;
@@ -123,17 +119,8 @@ public class Tank {
         return hitCheck;
     }
 
-    // TODO remove this helper method when done with collision testing (important for testing so I left it in here)
-
-    // private void displayHit(double x, double y) {
-    //     Ellipse location1 = new Ellipse(x, y, 1, 1);
-    //     location1.setFillColor(Color.ORANGE);
-    //     location1.setFilled(true);
-    //     canvas.add(location1);
-    //     canvas.draw();
-    // }
-
     // Helper method which derives the current position of numPoints Points on the tank body and updates the list with them
+    // *Main Collision Testing Method*
     private void updateBodyPoints() {
         double centerX = t.getX() + 15;
         double centerY = t.getY() + 15;
@@ -161,9 +148,24 @@ public class Tank {
         return new double [] {x, y};
     }
 
+    // getter method for angle in Radians
     public double getAngle() {
         return radians;
     }
 
-    
+    // resets the angle, rotation, and position of the tank. Then recalculates the collision points
+    public void resetPosition(double x, double y) {
+        t.setPosition(x, y);
+        angle = 90;
+        radians = angle * (Math.PI / 180);
+        t.setRotation(0);
+        updateBodyPoints();
+        
+    }
+
+    // subtracts a life from tank and returns true only if livesremaining is less than 1
+    public boolean takeHit() {
+        livesRemaining --;
+        return livesRemaining <= 0;
+    }    
 }
