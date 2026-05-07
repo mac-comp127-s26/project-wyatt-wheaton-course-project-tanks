@@ -20,7 +20,7 @@ public class Obstacles {
         this.x = 50;
         this.y = 50;
         this.spacing = 50;
-        this.numRect = new Random().nextInt(14) + 1;
+        this.numRect = new Random().nextInt(14);
 
         // uses random number between 1 and 10 to create random 100 by 100 squares around the canvas
         for (int i = 0; i < numRect; i++) {

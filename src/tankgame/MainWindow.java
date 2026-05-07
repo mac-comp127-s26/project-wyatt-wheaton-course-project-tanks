@@ -14,11 +14,12 @@ public class MainWindow {
         // Making canvas and tank
         CanvasWindow canvas = new CanvasWindow("Tanks", 800, 800);
         Obstacles obs = new Obstacles(canvas);
-        Tank t0 = new Tank(canvas, 200, 200, p0, 0, obs);
-        Tank t1 = new Tank(canvas, 600, 600, p1, 1, obs);
+        Tank t0 = new Tank(canvas, 100, 100, p0, 0, obs);
+        Tank t1 = new Tank(canvas, 700, 700, p1, 1, obs);
 
         // for testing purposes
-        Bullet b = new Bullet(canvas, 40, p0, obs, t0)
+        Bullet b0 = new Bullet(canvas, p0, obs, t0);
+        Bullet b1 = new Bullet(canvas, p1, obs, t1);
 ;
         canvas.draw();
         
@@ -26,7 +27,8 @@ public class MainWindow {
         canvas.animate(() -> {
             t0.registerInput(canvas.getKeysPressed());
             t1.registerInput(canvas.getKeysPressed()); 
-            b.moveBullet();
+            b0.moveBullet();
+            b1.moveBullet();
         });
 
     }

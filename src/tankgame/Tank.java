@@ -22,10 +22,13 @@ public class Tank {
     private Obstacles o;
     private int numPoints = 16; // number of points on the body of the tank which are used as hitbox detectors
     private double[][] bodyPoints = new double [numPoints] [2]; // creates an array of 2 double arrays for 16 points on the body of the Tank
+    private double cannonWidthOffset = 15;
+    private double cannonHeightOffset = 45;
+    private double angle;
+    private double radians;
 
     // The angle is in degrees. Since Math.cos and Math.sin are in radians, we convert to radians before use.
-    double angle = 90;
-    double radians;
+    
 
     // This is mostly self explanatory, but controlScheme will determine if this tank will use wasd or arrows
     // TODO: Implement a starting angle
@@ -36,6 +39,8 @@ public class Tank {
         this.cannonHeight = 30;
         this.cannonWidth = 10;
         this.o = o;
+        this.angle = 90;
+        this.radians = angle * (Math.PI / 180);
         
         // This sets up our tank visual
         this.t = new GraphicsGroup(startX, startY);
@@ -118,16 +123,6 @@ public class Tank {
         return hitCheck;
     }
 
-    // TODO This helper method is for the cannon rotation if we decide to implement, otherwise delete it. 
-
-    // private double[] rotatePoint(double x, double y){
-    //     double tempRadians = radians - (Math.PI / 2);
-    //     double newX = t.getX() + x * Math.cos(tempRadians) - y * Math.sin(tempRadians);
-    //     double newY = t.getY() + x * Math.sin(tempRadians) + y * Math.cos(tempRadians);
-    //     return new double[] {newX, newY};
-    // }
-
-
     // TODO remove this helper method when done with collision testing (important for testing so I left it in here)
 
     // private void displayHit(double x, double y) {
@@ -153,12 +148,21 @@ public class Tank {
     }
 
     // creation and updating of cannonPoints (need for manipulating bullet location)
-    private void createCannonPoints() {
-        double centerX = t.getX() + 15;
-        double centerY = t.getY() + 15;
+    public double [] cannonRotated() {
+        double xOffset = cannonWidthOffset - 15; // subtract anchor
+        double yOffset = cannonHeightOffset - 15; // subtract anchor
+        double angle = getAngle() * (180 / Math.PI); // for subtracting original tank angle
+        angle = (angle - 90) * (Math.PI / 180);  // for subtracting the orginal tank angle
+        
+        //2D Rotation Matrix (tank position + offset of cannon (width/height) + rotation matrix based on tank angle)
+        double x = t.getX() + 15 + ((xOffset * Math.cos(angle)) - (yOffset * Math.sin(angle)));
+        double y = t.getY() + 15 + ((xOffset * Math.sin(angle)) + (yOffset * Math.cos(angle)));
+        
+        return new double [] {x, y};
+    }
 
-
-
+    public double getAngle() {
+        return radians;
     }
 
     
