@@ -12,7 +12,7 @@ Tanks! is a 2 player local PvP game played on one keyboard. The goal of the game
 Each round will begin with each tank in opposite corners. Obstacles that block tank movement and bullets will be randomly generated around the screen.
 The players will then be given control, with the goal of eliminating the other player. Tanks will automatically fire slow moving bullets, but you can only have one bullet out at a time, so be careful!
 When a player is eliminated, the other player gains a point and the round resets, generating new obstacles. The game is played with a lives format, each player starts with 3 and loses one when eliminated. 
-The first player to run out of lives loses
+The first player to run out of lives loses!
 
 ## Controls
 
@@ -36,7 +36,7 @@ The first player to run out of lives loses
 5. Repeat if desired
 
 ## Images
-![Screenshot of Tanks!, where blue shoots at but nearly misses red](https://github.com/mac-comp127-s26/project-wyatt-wheaton-course-project-tanks/blob/main/image/Window_Image0.png)
+![Screenshot of Tanks!, where blue shoots at but nearly misses red](Image/Window_Image0.png)
 
 *More images to be added in the future*
 
