@@ -3,7 +3,7 @@
 
  - Two Player Tank PVP game on one keyboard
 
-**Drawing of UI can be found attached as "UIOutline.jpg" in the Image folder**
+![](https://github.com/mac-comp127-s26/project-wyatt-wheaton-course-project-tanks/blob/main/image/IMG_1346.jpg)
 
 This game allows for two players to play a tank style PVP game. Both will be able to move around and shoot the other, any opposing fire that hits a tank will eliminate that tank. Followed by a delay which resets the game and the walls. Then the Tanks will be able to move around and fire again. 
 

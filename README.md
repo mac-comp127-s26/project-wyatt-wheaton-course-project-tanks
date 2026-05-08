@@ -10,9 +10,9 @@ By Wheaton Gribb and Wyatt Petersen
 Tanks! is a 2 player local PvP game played on one keyboard. The goal of the game is to eliminate the other player by shooting their tank.
 
 Each round will begin with each tank in opposite corners. Obstacles that block tank movement and bullets will be randomly generated around the screen.
-The players will then be given control, with the goal of eliminating the other player. Tanks can fire slow moving bullets on a short cooldown, with unlimited ammo.
-When a player is eliminated, the other player gains a point and the round resets, generating new obstacles. The game will be played in a best of (TBD) format,
-so the player who wins (TBD) rounds first will win, and the game will end.
+The players will then be given control, with the goal of eliminating the other player. Tanks will automatically fire slow moving bullets, but you can only have one bullet out at a time, so be careful!
+When a player is eliminated, the other player gains a point and the round resets, generating new obstacles. The game is played with a lives format, each player starts with 3 and loses one when eliminated. 
+The first player to run out of lives loses
 
 ## Controls
 
@@ -21,23 +21,22 @@ so the player who wins (TBD) rounds first will win, and the game will end.
 - S - Drive Backward
 - A - Turn Left
 - D - Turn Right
-- SPACE - Fire
 
 ### For Player 2 (Red Tank)
 - UP ARROW - Drive Forward
 - DONW ARROW - Drive Backward
 - LEFT ARROW - Turn Left
 - RIGHT ARROW - Turn Right
-- RIGHT CONTROL - Fire
 
 ## Instructions to Play
 1. Open project in VS code
 2. Run `MainWindow` (Insure proper functionality of KiltGrahpics ahead of time)
 3. Position players on keyboard. As stated above, one player will use WASD while another will use the arrow keys.
 4. Play until one player wins!
+5. Repeat if desired
 
 ## Images
-![Screenshot of Tanks!, where blue shoots at but nearly misses red](https://github.com/mac-comp127-s26/project-wyatt-wheaton-course-project-tanks/blob/main/Image/Window_Image0.png)
+![Screenshot of Tanks!, where blue shoots at but nearly misses red](https://github.com/mac-comp127-s26/project-wyatt-wheaton-course-project-tanks/blob/main/image/Window_Image0.png)
 
 *More images to be added in the future*
 
