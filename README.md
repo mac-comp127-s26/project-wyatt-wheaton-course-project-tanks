@@ -40,6 +40,12 @@ The first player to run out of lives loses!
 ![Screenshot of Tanks!, a long range battle is taking place](Image/Window_Image1.png)
 ![Screenshot of Tanks! after blue won the round. Red has two lives left!](Image/Window_Image3.png)
 
+## Presentation
+
+[![Presentation Video](https://img.youtube.com/vi/Vk7WLMv0LXg/0.jpg)](https://www.youtube.com/watch?v=Vk7WLMv0LXg)
+
+The slides can be found [here](https://docs.google.com/presentation/d/1slBt-raO8yyGt9Lnb8IVVGNi1p0JlcLilCAvtZULGcY/edit?usp=sharing).
+
 ## Known Bugs/Limitations
 
 ### *Known* Bugs
