@@ -37,12 +37,18 @@ The first player to run out of lives loses!
 
 ## Images
 ![Screenshot of Tanks!, where blue shoots at but nearly misses red](Image/Window_Image0.png)
-
-*More images to be added in the future*
+![Screenshot of Tanks!, a long range battle is taking place](Image/Window_Image1.png)
+![Screenshot of Tanks! after blue won the round. Red has two lives left!](Image/Window_Image3.png)
 
 ## Known Bugs/Limitations
 
-*To be added in the future*
+### *Known* Bugs
+- Sticky collision detection - Tanks can "stick" when driving around walls, but building a collision system to prevent this would be very difficult and bigger in scope than the project itself.
+
+### Limitations
+- Automatic firing / One bullet at a time - Both of these are due to the limitations of our Bullet class, we can only have one bullet on screen at a time, so we thought it would be quite redundant to even have a button to fire.
+- Animation - We wanted to have some explosions or bullet trails, but time did not allow.
+- Tank collision - Also a time constraint, not a big issue but can lead to some strange interactions in an up close fight. 
 
 ## Resources
 - Wii Play Tanks - This was the main inspiration behind our game. It is worth noting that this is a 1-2 player Co-op campaign format instead of PvP. Gameplay can be found [here](https://youtu.be/orLxrg51xL8).

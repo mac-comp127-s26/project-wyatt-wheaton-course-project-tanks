@@ -4,7 +4,13 @@ import java.awt.Color;
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsText;
 
-// TODO: Implement Javadoc
+/**
+* Authors: Wheaton Gribb and Wyatt Petersen
+*
+* This is main, obviously. After initalizing everything, all of the movement is handled 
+* within an animate() lambda. All of the game logic is also 
+* handled here (removing lives, who wins / loses, game reset etc.)
+*/
 
 public class MainWindow {
     public static void main(String[] args) {

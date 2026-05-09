@@ -7,6 +7,14 @@ import edu.macalester.graphics.Rectangle;
 import java.awt.Color;
 import java.util.List;
 
+/**
+* Authors: Wheaton Gribb and Wyatt Petersen
+*
+* This class is paired with a tank to continously shoot bullets at given angle.
+* There is one instance of bullet per tank, and methods within to check if it hit another tank.
+* These methods will be used by the game logic in main.
+*/
+
 public class Bullet {
     private int numPoints = 16;
     private double startX;

@@ -7,6 +7,14 @@ import java.util.Random;
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Rectangle;
 
+/**
+* Authors: Wheaton Gribb and Wyatt Petersen
+* 
+* This class handles the random generation and hit detection of the obstables on screen.
+* An instance of this object is created, making an onscreen random layout. The instance is then given
+* both tanks and obstancles to use for their movement and collision detection
+*/
+
 public class Obstacles {
     private int spacing;
     private int numRect;

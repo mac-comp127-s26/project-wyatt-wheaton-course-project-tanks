@@ -10,7 +10,12 @@ import java.awt.Color;
 import java.util.List;
 import java.util.Set;
 
-// TODO: Implement javadoc
+/**
+* Authors: Wheaton Gribb and Wyatt Petersen
+*
+* This class creates and allows control of a tank when used in an animate() lambda. It can be instantiated with one
+* of two control schemes, and takes in and Obstacles object for collision detection.
+*/
 
 public class Tank {
     public GraphicsGroup t; // Graphics Group of the Tank
