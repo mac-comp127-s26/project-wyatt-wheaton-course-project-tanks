@@ -42,7 +42,7 @@ The first player to run out of lives loses!
 
 ## Presentation
 
-[![Presentation Video](https://img.youtube.com/vi/Vk7WLMv0LXg/0.jpg)](https://www.youtube.com/watch?v=Vk7WLMv0LXg)
+[![Presentation Video](https://img.youtube.com/vi/AHmQqNMbRX0/0.jpg)](https://youtu.be/AHmQqNMbRX0)
 
 The slides can be found [here](https://docs.google.com/presentation/d/1slBt-raO8yyGt9Lnb8IVVGNi1p0JlcLilCAvtZULGcY/edit?usp=sharing).
 
